@@ -38,30 +38,9 @@ int main()
     int counterX = 0;
     int counterY = 0;
     FILE* file;
-    if(size==100)
-    {
-    	file = fopen ("100/matrix-100.txt", "r");
-    }
-    else if (size == 1000)
-    {
-    	file = fopen ("1000/matrix-100.txt", "r");
-    }
-    else if (size == 3000)
-    {
-    	file = fopen ("3000/matrix-100.txt", "r");
-    }
-	else if (size == 4000)
-    {
-    	file = fopen ("4000/matrix-100.txt", "r");
-    }
-	else if (size == 10000)
-    {
-    	file = fopen ("10000/matrix-100.txt", "r");
-    }
-	else if (size == 20000)
-    {
-    	file = fopen ("20000/matrix-100.txt", "r");
-    }
+    size = 100;
+    file = fopen ("100/adjacentMatrix-100.txt", "r");
+
     fscanf (file, "%d", &i);    
     while (!feof (file))
     {  
@@ -77,30 +56,8 @@ int main()
 
     
     char raw_data[50];
-    if(size==100)
-    {
-    	file = fopen ("100/nodecols-100.txt", "r");
-    }
-    else if (size == 1000)
-    {
-    	file = fopen ("1000/nodecols-1000.txt", "r");
-    }
-    else if (size == 3000)
-    {
-    	file = fopen ("3000/nodecols-3000.txt", "r");
-    }
-	else if (size == 4000)
-    {
-    	file = fopen ("4000/nodecols-4000.txt", "r");
-    }
-	else if (size == 10000)
-    {
-    	file = fopen ("10000/nodecols-10000.txt", "r");
-    }
-	else if (size == 20000)
-    {
-    	file = fopen ("20000/nodecols-20000.txt", "r");
-    }   
+    file = fopen ("100/nodeInformation-100.txt", "r");
+
     counterX=0;
     fscanf(file, "%s %s %s %s", &raw_data,&raw_data,&raw_data,&raw_data);
     while (!feof (file))
@@ -132,7 +89,7 @@ void solveForBFS(int Node)
 	p=delete();
 		if(p!=-1) 
 		{
-			printFinalOutput(p+1);
+			printf("%d",(p+1));
 		}
 	
 	while(p!=-1) 
@@ -148,7 +105,7 @@ void solveForBFS(int Node)
 		p=delete(); 
 		if(p!=-1) 
 		{
-			printFinalOutput(p+1);
+			printf("%d",(p+1));
 		}
 	}
 	for(i=0;i<size;i++) {
