@@ -15,11 +15,11 @@ struct DFSProgram Nodes[MAX];
 int G[MAX][MAX], visited[MAX], size=MAX; 
 FILE * fileWriter;
 void solveForDFS(int startingNode);
-void printAnswer(int Node);
+void printFinalOutput(int Node);
 
 int main()
 {
-    fileWriter = fopen("output_DFS.txt", "w+");
+    fileWriter = fopen("output_DFS_C.txt", "w+");
     clock_t begin, end;
     int startingNode = 1; // by default the startingNode is 1
     printf("Enter Vertex Size : \n");
@@ -119,19 +119,19 @@ int main()
 }
 void solveForDFS(int Node) 
 {
-    printAnswer(Node+1);
+    printFinalOutput(Node+1);
     visited[Node] = 1;
-    int X;
-    for(X=0; X<size; X++)
+    int k;
+    for(k=0; k<size; k++)
     {
-        if(G[Node][X] == 1 && visited[X] == 0)
+        if(G[Node][k] == 1 && visited[k] == 0)
         {
-	  solveForDFS(X);
+	  solveForDFS(k);
         }
     }
 }
 
-void printAnswer(int Node)
+void printFinalOutput(int Node)
 {
 	char pop[20], elev[20], node[20];
     sprintf(node, "%d", Node);

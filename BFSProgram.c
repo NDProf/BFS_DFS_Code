@@ -18,11 +18,11 @@ FILE * fileWriter;
 int delete(); 
 void add(int item); 
 void solveForBFS(int Node); 
-void printAnswer(int Node);
+void printFinalOutput(int Node);
 
 int main()
 {
-    fileWriter = fopen("output_BFS.txt", "w+");
+    fileWriter = fopen("output_BFS_C.txt", "w+");
     clock_t begin, end;
     int startingNode = 1; // by default the startingNode is 1
     printf("Enter Vertex Size : \n");
@@ -132,7 +132,7 @@ void solveForBFS(int Node)
 	p=delete();
 		if(p!=-1) 
 		{
-			printAnswer(p+1);
+			printFinalOutput(p+1);
 		}
 	
 	while(p!=-1) 
@@ -148,7 +148,7 @@ void solveForBFS(int Node)
 		p=delete(); 
 		if(p!=-1) 
 		{
-			printAnswer(p+1);
+			printFinalOutput(p+1);
 		}
 	}
 	for(i=0;i<size;i++) {
@@ -162,7 +162,7 @@ void solveForBFS(int Node)
 void add(int item) 
 { 
     if(rear==size-1) 
-        printf("QUEUE FULL"); 
+        printf("No Space in Queue");
     else 
     { 
         if(rear==-1) 
@@ -177,17 +177,17 @@ void add(int item)
 
 int delete() 
 { 
-    int k; 
+    int i;
     if((front>rear)||(front==-1)) 
         return(-1); 
     else 
     { 
-        k=queue[front++]; 
-        return(k); 
+        i=queue[front++];
+        return(i);
     } 
 } 
 
-void printAnswer(int Node)
+void printFinalOutput(int Node)
 {
 	char pop[20], elev[20], node[20];
     sprintf(node, "%d", Node);
